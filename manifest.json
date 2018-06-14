@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+    "name": "Lost Time",
+    "version": "1.0",
+    
+    "icons": {
+      "128": "smile.png"
+    },
+    "content_scripts": [
+      {
+        "matches": [ "*://*/*", "http://localhost/*"],
+        "js": [
+            "jquery-3.3.1.min.js",
+            "contentscript.js"
+          ],
+          "run_at": "document_start",
+          "all_frames": true
+      }
+    ],
+    "web_accessible_resources": [
+        "index.js","web3.js/dist/web3.min.js"
+      ],
+    "background": {
+      "scripts": [ "jquery-3.3.1.min.js", "background.js"]
+    },
+    "permissions": [
+        "https://*.infura.io/*"
+    ],
+  
+        "browser_action": {
+          "default_title": "LostTime",
+          "default_icon": "smile.png",
+          "default_popup": "index.html"
+      }
+      
+  }
