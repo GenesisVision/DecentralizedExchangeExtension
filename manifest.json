@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "Lost Time",
+    "name": "Decentralize Exchange Extension",
     "version": "1.0",
     
     "icons": {
@@ -11,24 +11,27 @@
         "matches": [ "*://*/*", "http://localhost/*"],
         "js": [
             "jquery-3.3.1.min.js",
-            "contentscript.js"
+            "content.js"
           ],
           "run_at": "document_start",
           "all_frames": true
       }
     ],
     "web_accessible_resources": [
-        "index.js","web3.js/dist/web3.min.js"
+        "web3interceptor.js","web3.js/dist/web3.min.js"
       ],
     "background": {
-      "scripts": [ "jquery-3.3.1.min.js", "background.js"]
+      "scripts": [ "jquery-3.3.1.min.js",  "config.js" , "background.js"]
     },
     "permissions": [
-        "https://*.infura.io/*"
+        "webRequestBlocking",
+        "webRequest",
+        "https://*.infura.io/*",
+        "http://localhost:54076/dexchange/Node"
     ],
   
         "browser_action": {
-          "default_title": "LostTime",
+          "default_title": "Decentralize Exchange Extension",
           "default_icon": "smile.png",
           "default_popup": "index.html"
       }

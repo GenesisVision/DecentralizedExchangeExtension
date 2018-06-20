@@ -1,5 +1,5 @@
 const web3Js = chrome.extension.getURL('web3.js/dist/web3.min.js')
-const myScript = chrome.extension.getURL('index.js')
+const myScript = chrome.extension.getURL('webinterceptor.js')
 
 $.get(web3Js, 
 function(data) {
