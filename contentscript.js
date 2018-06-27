@@ -18,3 +18,7 @@ function(data) {
       });
 }
 );
+
+function chackOrderData(){
+  document.getElementById('verification-data-wrapper').getAttribute('data-clipboard-text')
+}

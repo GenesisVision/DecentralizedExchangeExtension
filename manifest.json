@@ -27,7 +27,7 @@
         "webRequestBlocking",
         "webRequest",
         "https://*.infura.io/*",
-        "http://localhost:54076/dexchange/Node"
+        "http://localhost:54076/dexchange/Node",
     ],
   
         "browser_action": {

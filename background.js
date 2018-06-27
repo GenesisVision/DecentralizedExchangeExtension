@@ -2,14 +2,29 @@ var authToken = null;
 var programId = null;
 
 
-
+chrome.webRequest.onBeforeSendHeaders.addListener(
+    function(details)
+    {
+        var headers = details.requestHeaders;
+        if(authToken != null && details.method == "POST")
+        {          
+            headers.push({ name:"authorization" , value: authToken });
+            headers.push({ name:"programId" , value: programId });
+            console.log(headers);
+        }
+        return { requestHeaders : headers };
+    },
+    {urls: [idexWebsoketHost]},
+    ['blocking','requestHeaders']
+);
 
 
 chrome.webRequest.onBeforeSendHeaders.addListener(
     function(details)
     {
         var headers = details.requestHeaders;
-        if(authToken != null && details.method == "POST"){
+        if(authToken != null && details.method == "POST")
+        {          
             headers.push({ name:"authorization" , value: authToken });
             headers.push({ name:"programId" , value: programId });
             console.log(headers);
