@@ -19,6 +19,6 @@ function(data) {
 }
 );
 
-function chackOrderData(){
+function checkOrderData(){
   document.getElementById('verification-data-wrapper').getAttribute('data-clipboard-text')
 }
