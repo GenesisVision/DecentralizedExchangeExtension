@@ -26,14 +26,15 @@
     "permissions": [
         "webRequestBlocking",
         "webRequest",
+        "tabs",
         "https://*.infura.io/*",
-        "http://localhost:54076/dexchange/Node"
+        "http://localhost:54076/dexchange/*"
     ],
   
         "browser_action": {
           "default_title": "Decentralize Exchange Extension",
           "default_icon": "smile.png",
-          "default_popup": "index.html"
+          "default_popup": "createOrder.html"
       }
       
   }

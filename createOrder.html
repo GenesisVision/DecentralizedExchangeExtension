@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="jquery-3.3.1.min.js"></script>
+    <title>GV</title>
+  </head>
+  <body>
+    <a href="/investmentProgram.html">Back</a>
+    <form id="target">
+      <select name="type" size="1">
+        <option value="buy">Buy</option>
+        <option value="sell">Sell</option>
+      </select>
+      <select name="actType" size="1">
+        <option value="market">Market</option>
+        <option value="limit">Limit</option>
+      </select> <br />
+      <select name="currency" size="1">
+        <option value="aura">AURA</option>
+        <option value="mas">MAS</option>
+      </select> <br/>
+      Price: <input id="price" name="price" type="number" value="0" size="25"/> <br/>
+      Amount: <input id="amount" name="amount" type="number" value="0" size="25"/> <br/>
+      Total: <span id="total">0</span><br/>
+      <input type="submit" data-method="serialize" value="Ok">
+    </form>
+  </body>
+  <script src="createOrder.js"></script>
+</html>

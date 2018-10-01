@@ -32,6 +32,9 @@ chrome.runtime.onMessage.addListener(
             case "investmentProgram":
                 sendResponse(investmentProgram(request, request.method));
             break;
+            case "createOrder": 
+                sendResponse(createOrder(request.data));
+            break;
         }
     }
 );
@@ -96,7 +99,7 @@ function signIn(email,password){
         password : password,
     };
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", gvpHost + '/api/manager/auth/signIn', false);
+    xhr.open("POST", gvpHost + '/v1.0/auth/signin/manager', false);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify((login)))
     authToken = xhr.responseText;
@@ -104,6 +107,22 @@ function signIn(email,password){
         authToken = "Bearer " + authToken;
         return true;
     }else { return false;}
+}
+
+function createOrder(request){
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", gvpHost + '/v1.0/dexchange/createOrder', false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+ //   xhr.setRequestHeader('authorization', authToken);
+    xhr.send(JSON.stringify((request)));
+    if(xhr.status == 400){
+        var response = JSON.parse(xhr.responseText);
+        for(var i =0;i<response.errors.length;i++){
+            alert(response.errors[i].message);
+        }
+        return null;
+    }
+    return xhr.responseText;
 }
 
 function signOut(){

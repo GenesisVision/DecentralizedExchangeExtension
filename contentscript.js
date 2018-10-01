@@ -18,7 +18,3 @@ function(data) {
       });
 }
 );
-
-function checkOrderData(){
-  document.getElementById('verification-data-wrapper').getAttribute('data-clipboard-text')
-}
